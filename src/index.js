@@ -1,14 +1,10 @@
 import React from "react";
-import { configureStore } from "@reduxjs/toolkit";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
+import store from "./Components/StoreRedux/store"
 import "../src/Styles/index.scss";
 import App from "./App/App";
-
-const store = configureStore({
-  reducer: {},
-});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

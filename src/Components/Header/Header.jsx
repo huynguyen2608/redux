@@ -1,26 +1,35 @@
 import React from "react";
-import "./Header.scss";
+import { useSelector } from "react-redux";
 
 function Header(props) {
+  const user = useSelector((state) => state.user);
+  console.log(user.themeColor);
+
   const { setIsEdit } = props;
-    const handleCloseEdit = () => {
-        setIsEdit(true)
-    }
+  const handleCloseEdit = () => {
+    setIsEdit(true);
+  };
   return (
     <div>
-      <header>
+      <header
+        style={{
+          backgroundColor: `${user.themeColor}`,
+          backgroundImage: `linear-gradient( 180deg, ${user.themeColor} 2%, ${user.themeColor} 35%, #181818 100%)`,
+        }}
+      >
         <div className="info-container">
-          <div className="info-edit" onClick={handleCloseEdit}>edit</div>
-          <img
-            className="info-avata"
-            src="https://luctuyetkytuyetme.files.wordpress.com/2016/11/39f7c0fef312c912a3df83e524a843f2.jpg?w=500"
-            alt=""
-            width={95}
-            height={140}
-          />
-          <div className="info-username"> Huy Nguyen</div>
-          <div className="info-age">26 years old</div>
-          <div className="info-about"> I'm a software engineer</div>
+          <div className="info-edit" onClick={handleCloseEdit}>
+            EDIT
+          </div>
+          <div className="info">
+            <img className="info-avata" src={user.avaUrl} alt="" />
+            <div>
+              <div className="info-username">Name: {user.name}</div>
+              <div className="info-age"> Age: {user.age}</div>
+            </div>
+          </div>
+
+          <div className="info-about"> About: {user.about}</div>
         </div>
       </header>
     </div>

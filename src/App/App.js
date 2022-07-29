@@ -7,8 +7,7 @@ function App() {
   const [isEdit, setIsEdit] = useState(false);
   return (
     <div className="app">
-      {/* {isEdit ? <Edit /> : <Header setIsEdit={setIsEdit} />} */}
-      <Edit/>
+      {isEdit ? <Edit setIsEdit={setIsEdit}/> : <Header setIsEdit={setIsEdit} />}
     </div>
   );
 }
